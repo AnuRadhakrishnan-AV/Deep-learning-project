@@ -1,0 +1,44 @@
+                                                               EMOTION DETECTION USING CONVOLUTIONAL NEURAL NETWORK AND OPENCV
+
+
+
+The data consists of 48x48 pixel grayscale images of faces. The faces have been automatically registered so that the face is more or less centred and occupies about 
+the same amount of space in each image.
+
+The task is to categorize each face based on the emotion shown in the facial expression into one of seven categories (0=Angry, 1=Disgust, 2=Fear, 3=Happy, 4=Sad, 5=Surprise, 6=Neutral).
+
+                                                                                 BUILD AND TRAIN THE MODEL
+
+
+This is building and training a Convolutional Neural Network (CNN) using the Keras deep learning library to classify facial expressions. The dataset contains images of faces categorized 
+into seven different facial expressions (happy, sad, angry, surprise, fear, disgust, neutral).
+
+first imports the necessary libraries such as matplotlib, numpy, pandas, seaborn, os, and tensorflow.It then sets the size of the images to be 48x48 pixels and specifies the folder path 
+where the images are stored.
+
+Next, defines a function to load and display some sample images of a given expression using matplotlib. It then uses the ImageDataGenerator class from keras.preprocessing.image to preprocess
+ the images and create a training set and a validation set.The training set is used to train the model, and the validation set is used to evaluate its performance.
+
+The model architecture is defined using the Sequential model from Keras, which allows us to stack multiple layers on top of each other. The model consists of two convolutional layers followed 
+by max-pooling layers to reduce the spatial size of the feature maps.The output from the convolutional layers is then flattened and passed through two fully connected (dense) layers with dropout
+ to prevent overfitting. The final layer uses softmax activation to produce the output probabilities for each of the seven classes.
+
+The model is then compiled using the Adam optimizer and categorical cross-entropy loss function, and the training process is started using the fit_generator method. Finally, the model 
+architecture is saved to a JSON file and the weights are saved to an h5 file.
+                                                                            
+                                                                                          TEST THE MODEL
+
+The trained model is then loaded and used in a real-time video stream captured through the computer's webcam. The video frames are preprocessed and the faces in the frame are detected using 
+the OpenCV library. The detected faces are then cropped and resized to a size suitable for the input of the trained model. The model predicts the emotion for each detected face, and the 
+resulting emotion label is displayed as text on the video frame.
+It also includes a dictionary mapping the emotion category index to its corresponding label name. The program will continue to run until the user presses the "q" key, at which point it will
+ release the camera resources and close all windows.
+
+
+
+
+
+
+
+
+
